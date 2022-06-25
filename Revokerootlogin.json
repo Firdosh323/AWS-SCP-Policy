@@ -1,0 +1,17 @@
+# The policy effect prevents logging in as root into AWS accounts
+
+
+{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Sid": "DenyRootUser",
+    "Effect": "Deny",
+    "Action": "*",
+    "Resource": "*",
+    "Condition": {
+      "StringLike": {
+        "aws:PrincipalArn": "arn:aws:iam::*:root"
+      }
+    }
+  }
+}
